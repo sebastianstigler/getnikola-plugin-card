@@ -1,0 +1,13 @@
+[Core]
+name = rest_card
+module = card
+
+[Nikola]
+compiler = rest
+PluginCategory = CompilerExtension
+
+[Documentation]
+author = Sebastian Stigler
+version = 0.1
+website = tbd.
+description = Card directive, providing bootstrap cards for web pages.

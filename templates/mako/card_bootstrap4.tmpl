@@ -1,0 +1,25 @@
+<%block name="content">
+% if card_image is None and card_link:
+<a class="reference external" href="${card_link}">
+% endif
+<div id="card_${hex_uuid4}" class="${card_class}"${' style="%s"' % card_style if card_style else ''}>
+  % if card_image is not None and card_link:
+  <a class="reference external image-reference" href="${card_link}">
+  % endif
+  % if card_image:
+  <img class="card-img-top" src="${card_image}"${' alt="%s"' % card_alt if card_alt else ''}>
+  % endif
+  % if card_link:
+  </a>
+  % endif
+  <div class="card-body">
+    % if card_title:
+    <h4 class="card-title">${card_title}</h4>
+    % endif
+    ${card_content}
+  </div>
+</div>
+% if card_image is None and card_link:
+</a>
+% endif
+</%block>
