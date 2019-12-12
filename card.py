@@ -62,7 +62,9 @@ class Card(Directive):
     def run(self):
         """Run the slides directive."""
         if len(self.content) == 0:  # pragma: no cover
-            return
+            card_content = ""
+        else:
+            card_content = self.rst2html('\n'.join(self.content))
 
         card_title = self.options.get('title', None)
         card_class = self.options.get('class', '').strip().split('\n')
@@ -110,7 +112,6 @@ class Card(Directive):
         else:
             hex_uuid4 = uuid.uuid4().hex
 
-        card_content = self.rst2html('\n'.join(self.content))
 
         output = self.site.template_system.render_template(
             template_name,
